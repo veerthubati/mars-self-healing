@@ -21,8 +21,8 @@ MARS is a multi-agent AI framework that autonomously resolves production inciden
 **Key Results** (from our evaluation with 250 controlled failure scenarios):
 - **73.2%** of incidents resolved autonomously (no human needed)
 - **5.2 minutes** average recovery time (down from 14.7 min with traditional automation)
-- **91.4%** accuracy in identifying the correct root cause
-- **2.1%** rate of unnecessary actions (the system knows when to ask for help)
+- **87.3%** accuracy in identifying the correct root cause
+- **4.2%** rate of unnecessary actions (the system knows when to ask for help)
 
 ---
 
