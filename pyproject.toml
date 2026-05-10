@@ -2,7 +2,7 @@
 name = "mars-self-healing"
 version = "0.1.0"
 description = "Multi-Agent Reasoning for Self-Healing in Cloud-Native Microservice Systems"
-authors = [{name = "Veer Thubati", email = "veer@example.com"}]
+authors = [{name = "Veeraiah Chowdary Thubati", email = "veerathubati@gmail.com"}]
 license = {text = "Apache-2.0"}
 readme = "README.md"
 requires-python = ">=3.11"

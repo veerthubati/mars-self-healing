@@ -40,7 +40,7 @@ MARS is a multi-agent AI framework that autonomously resolves production inciden
                             │                      │
                             ▼                      ▼
                    ┌─────────────────────────────────────┐
-                   │        RAG Knowledge Base            │
+                   │        RAG Knowledge Base           │
                    │  • 450 Runbooks  • 12K+ Incidents   │
                    │  • Architecture Docs  • ADRs        │
                    └─────────────────────────────────────┘
@@ -148,7 +148,7 @@ The paper details the framework design, experimental methodology, and evaluation
   title={Adaptive Multi-Agent AI Architecture for Autonomous Microservice 
          Self-Healing in Cloud-Native Systems: A Framework with 
          Retrieval-Augmented Reasoning},
-  author={Thubati, Veer},
+  author={Thubati, Veeraiah Chowdary and Tubati, Durga Prasad},
   year={2025},
   note={Under review}
 }
