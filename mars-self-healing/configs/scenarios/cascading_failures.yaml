@@ -1,0 +1,60 @@
+# Cascading Failure Scenarios for MARS Evaluation
+# Each scenario defines a fault injection that propagates through service dependencies
+
+scenarios:
+  - name: "payment-timeout-cascade"
+    description: "Payment service timeout propagates to order and checkout services"
+    injection:
+      target_service: "payment-service"
+      fault_type: "latency"
+      parameters:
+        delay_ms: 5000
+        affected_endpoints: ["/process", "/refund"]
+    expected_cascade:
+      - "order-service"
+      - "checkout-service"
+      - "notification-service"
+    difficulty: "medium"
+
+  - name: "database-connection-exhaustion"
+    description: "Connection pool exhaustion in inventory DB causes upstream failures"
+    injection:
+      target_service: "inventory-service"
+      fault_type: "resource_exhaustion"
+      parameters:
+        resource: "db_connections"
+        limit: 0
+    expected_cascade:
+      - "product-catalog"
+      - "order-service"
+      - "recommendation-service"
+    difficulty: "hard"
+
+  - name: "auth-service-crash-loop"
+    description: "Authentication service enters crash loop, blocking all authenticated requests"
+    injection:
+      target_service: "auth-service"
+      fault_type: "crash"
+      parameters:
+        restart_delay_s: 30
+        crash_on: "startup"
+    expected_cascade:
+      - "api-gateway"
+      - "user-service"
+      - "admin-panel"
+      - "order-service"
+    difficulty: "critical"
+
+  - name: "cache-eviction-storm"
+    description: "Redis cache mass eviction triggers thundering herd to database"
+    injection:
+      target_service: "redis-cache"
+      fault_type: "data_loss"
+      parameters:
+        eviction_percent: 95
+    expected_cascade:
+      - "product-catalog"
+      - "session-service"
+      - "recommendation-service"
+      - "postgres-primary"
+    difficulty: "hard"
